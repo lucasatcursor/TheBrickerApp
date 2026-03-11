@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Login from './Login';
-import AlocacaoTerritorioWrapper from './AlocacaoTerritorio';
-import ConfiguracaoMercado from './ConfiguracaoMercado';
-import AdminConsole from './AdminConsole'; // <-- AQUI! Trazendo seu arquivo de volta
+import AlocacaoTerritorioWrapper from './alocacaoTerritorio';
+import ConfiguracaoMercado from './configuracaomercado';
+import AdminConsole from './adminconsole'; // <-- AQUI! Trazendo seu arquivo de volta
 
 // === TELA DO MENU PRINCIPAL ===
 const MenuPrincipal = ({ usuario, onNavigate, onLogout }) => {
