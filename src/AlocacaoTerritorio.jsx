@@ -337,7 +337,7 @@ const BotaoTrocarTerritorio = ({ territorioAtual, territoriosPermitidos = [], on
 // ============================================================================
 // 6. LÓGICA PRINCIPAL
 // ============================================================================
-function AlocacaoPrincipal({ usuario, onLogout }) {
+function AlocacaoPrincipal({ usuario, onLogout, onVoltar }) {
   const [territorio, setTerritorio] = useState(usuario?.COD_TERRITORIO ? String(usuario.COD_TERRITORIO) : '');
   const [territoriosPermitidos, setTerritoriosPermitidos] = useState([]);
   const [linhasPorTerritorio, setLinhasPorTerritorio] = useState({});
@@ -466,7 +466,6 @@ function AlocacaoPrincipal({ usuario, onLogout }) {
       const linhaDoTerritorio = linhasPorTerritorio[territorio] || '';
       const versaoNome = versaoAtiva.ALLOCATION_VERSION_NAME;
 
-      // ATENÇÃO: NÃO ESTAMOS MAIS ENVIANDO A COLUNA 'unique_key_new'
       const payload = adicionados.map(b => {
         return { 
           "ID_BRICK": parseInt(b.ID_BRICK, 10), 
@@ -514,6 +513,14 @@ function AlocacaoPrincipal({ usuario, onLogout }) {
                 <span className={`text-[10px] block uppercase tracking-wider font-bold ${podeEditar ? 'text-teal-300' : 'text-red-700'}`}>Versão Ativa {podeEditar ? '(Aberto)' : '(Bloqueado)'}</span>
                 <span className={`font-bold text-sm ${podeEditar ? 'text-white' : 'text-red-800'}`}>{versaoAtiva?.ALLOCATION_VERSION_NAME || 'Nenhuma configurada'}</span>
             </div>
+            
+            {/* BOTÃO PARA VOLTAR AO MENU */}
+            {onVoltar && (
+              <button onClick={onVoltar} className="bg-slate-600 hover:bg-slate-800 text-white px-4 py-2 rounded-md font-bold transition">
+                ← Menu
+              </button>
+            )}
+
             <button onClick={onLogout} className="bg-gray-300 hover:bg-gray-400 text-slate-700 px-4 py-2 rounded-md font-bold transition">Sair</button>
         </div>
       </header>
