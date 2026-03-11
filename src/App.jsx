@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Login from './Login';
-import AlocacaoTerritorioWrapper from './alocacaoTerritorio';
+import AlocacaoTerritorioWrapper from './AlocacaoTerritorio'; //SUBIR PRO GIT
 import ConfiguracaoMercado from './configuracaomercado';
 import AdminConsole from './AdminConsole'; // <-- AQUI! Trazendo seu arquivo de volta
 
